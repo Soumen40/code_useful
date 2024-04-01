@@ -9,7 +9,7 @@ for j in `seq 9 $T`;
 do
 	b=`sed -n "$j"p POSCAR | awk '{printf "%15.9f %15.9f %15.9f",   $1,  $2,    $3}'`
 	n=`sed -n "$j"p POSCAR | awk '{print $3}'`
-	k=20.003
+	k=20.003    # Put here the distance along z-direction beyond which TRUE is needed
 	a=`sed -n "$j"p POSCAR`
 	if [ 1 -eq "$(echo "${n} < ${k}" | bc)" ]                                  #if [[ $n -lt $k ]];
 	then
